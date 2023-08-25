@@ -19,6 +19,6 @@ symfony console doctrine:migrations:migrate
 symfony console doctrine:fixtures:load
 
 
-Now you shoud be able to acces accaunts app at:
+Now you shoud be able to access accounts app at:
 
 http://localhost:8000/
