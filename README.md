@@ -4,7 +4,7 @@ git clone https://github.com/KrissAndersons/accountsApp.git
 
 Go to project directory:
 
-docker_compose up
+docker-compose up
 
 After a while container shoud be up and runing, open new teminal in same directory:
 
