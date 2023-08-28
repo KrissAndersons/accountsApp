@@ -9,16 +9,16 @@ RUN apt-get update && apt-get install -y \
     libxml2-dev \
     zip \
     unzip \
-    nano
+    nano 
 
 RUN docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd intl
 
 RUN curl -sS https://getcomposer.org/installer | php && mv composer.phar /usr/local/bin/composer
 
-RUN wget --no-check-certificate https://phar.phpunit.de/phpunit-10.phar && \
-    mv phpunit*.phar phpunit.phar && \
-    chmod +x phpunit.phar && \
-    mv phpunit.phar /usr/local/bin/phpunit
+#RUN wget --no-check-certificate https://phar.phpunit.de/phpunit-10.phar && \
+#    mv phpunit*.phar phpunit.phar && \
+#    chmod +x phpunit.phar && \
+#    mv phpunit.phar /usr/local/bin/phpunit
 
 RUN curl -sS https://get.symfony.com/cli/installer | bash && mv /root/.symfony*/bin/symfony /usr/local/bin/symfony
 

@@ -41,7 +41,7 @@ class TransactionsController extends AbstractController
             ]);
         }
 
-        if (!is_numeric($postData['amount']) || preg_match('/\.\d{3,}/', $postData['amount']) ) {
+        if (!is_numeric($postData['amount']) || preg_match('/\.\d{3,}/', $postData['amount']) || 0 >= $postData['amount']) {
             return $this->json([
                 'succes' => false,
                 'error'  => 'Bad amount format.',

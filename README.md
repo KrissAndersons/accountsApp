@@ -22,3 +22,14 @@ symfony console doctrine:fixtures:load
 Now you shoud be able to access accounts app at:
 
 http://localhost:8000/
+
+
+for running Testing create test db:
+
+symfony console doctrine:database:create --env="test"
+
+set up test table:
+
+symfony console doctrine:migrations:migrate --env="test"
+
+
