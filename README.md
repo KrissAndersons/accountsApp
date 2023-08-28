@@ -26,6 +26,7 @@ http://localhost:8000/
 for running smallTests create test db:
 
 symfony console doctrine:database:create --env="test"
+symfony console doctrine:migrations:migrate --env="test"
 
 run all tests from container:
 
