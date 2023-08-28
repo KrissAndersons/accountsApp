@@ -32,7 +32,7 @@ class ClientsController extends AbstractController
         }
 
         return $this->json([
-            'succes'  => true,
+            'success'  => true,
             'clients' => $clientList,
         ]);
     }
@@ -46,7 +46,7 @@ class ClientsController extends AbstractController
         
         if (null === $client) {
             return $this->json([
-                'succes' => false,
+                'success' => false,
                 'error'  => 'Client not found.',
             ]);
         }
@@ -62,7 +62,7 @@ class ClientsController extends AbstractController
         }
 
         return $this->json([
-            'succes'   => true,
+            'success'   => true,
             'accounts' => $accountList,
         ]);
     }

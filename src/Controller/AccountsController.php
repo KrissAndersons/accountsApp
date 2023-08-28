@@ -30,7 +30,7 @@ class AccountsController extends AbstractController
 
         if (null === $account) {
             return $this->json([
-                'succes' => false,
+                'success' => false,
                 'error'  => 'Account not found',
             ]);
         }
@@ -56,7 +56,7 @@ class AccountsController extends AbstractController
         }
 
         return $this->json([
-            'succes'       => true,
+            'success'       => true,
             'transactions' => $transactionList,
         ]); 
     }

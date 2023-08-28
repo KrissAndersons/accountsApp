@@ -32,18 +32,18 @@ class TransactionsController extends AbstractController
     {
         $postData = json_decode($request->getContent(), true);
         
-        $requiredKeys = array('accountFromId', 'accountToId', 'amount', 'isoCode');
+        $requiredKeys = ['accountFromId', 'accountToId', 'amount', 'isoCode'];
 
         if (count(array_intersect_key(array_flip($requiredKeys), $postData)) !== count($requiredKeys)) {
             return $this->json([
-                'succes' => false,
+                'success' => false,
                 'error'  => 'Missing input data.',
             ]);
         }
 
         if (!is_numeric($postData['amount']) || preg_match('/\.\d{3,}/', $postData['amount']) || 0 >= $postData['amount']) {
             return $this->json([
-                'succes' => false,
+                'success' => false,
                 'error'  => 'Bad amount format.',
             ]);
         }
@@ -55,7 +55,7 @@ class TransactionsController extends AbstractController
 
         if (null === $accountFrom || null === $accountTo) {
             return $this->json([
-                'succes' => false,
+                'success' => false,
                 'error'  => 'Accounts not found',
             ]);
         }
@@ -65,7 +65,7 @@ class TransactionsController extends AbstractController
 
         if (empty($currency)) {
             return $this->json([
-                'succes' => false,
+                'success' => false,
                 'error'  => 'Receiver\'s currency not suported',
             ]);
         }
@@ -75,7 +75,7 @@ class TransactionsController extends AbstractController
          
         if ($currencyTo->getIsoCode() !== $currency[0]->getIsoCode()) {
             return $this->json([
-                'succes' => false,
+                'success' => false,
                 'error'  => 'Transaction not allowed, currency must match receiver\'s account currency',
             ]);
         }
@@ -134,7 +134,7 @@ class TransactionsController extends AbstractController
 
         if ($accountFrom->getAmount() < $amountFrom) {
             return $this->json([
-                'succes' => false,
+                'success' => false,
                 'error'  => 'Insufficient funds',
             ]);
         }
@@ -175,14 +175,14 @@ class TransactionsController extends AbstractController
             $this->em->clear();
 
             return $this->json([
-                'succes' => false,
+                'success' => false,
                 'error'  => 'Transaction failed.',
             ]);
 
         }
 
         return $this->json([
-            'succes'      => true,
+            'success'      => true,
             'transaction' => [
                 'id'           => $transaction->getId(),
                 'accountFrom'  => $transaction->getAccountFrom()->getId(),

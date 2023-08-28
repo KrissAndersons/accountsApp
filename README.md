@@ -12,7 +12,7 @@ composer install
 
 docker-compose exec -u 1000 fpm bash
 
-Now you are in container, run comand to set up db tables and data:
+Now you are in container, run comand to set up db tables and data (required for aplicationTests):
 
 symfony console doctrine:migrations:migrate
 
@@ -23,13 +23,11 @@ Now you shoud be able to access accounts app at:
 
 http://localhost:8000/
 
-
-for running Testing create test db:
+for running smallTests create test db:
 
 symfony console doctrine:database:create --env="test"
 
-set up test table:
+run all tests from container:
 
-symfony console doctrine:migrations:migrate --env="test"
-
+symfony php bin/phpunit
 
