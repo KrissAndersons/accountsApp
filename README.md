@@ -1,22 +1,22 @@
 Linux terminal setup:
 
-git clone https://github.com/KrissAndersons/accountsApp.git
+    git clone https://github.com/KrissAndersons/accountsApp.git
 
 Go to project directory:
 
-docker-compose up
+    docker-compose up
 
 After a while container shoud be up and runing, open new teminal in same directory:
 
-composer install
+    composer install
 
-docker-compose exec -u 1000 fpm bash
+    docker-compose exec -u 1000 fpm bash
 
 Now you are in container, run comand to set up db tables and data (required for aplicationTests):
 
-symfony console doctrine:migrations:migrate
+    symfony console doctrine:migrations:migrate
 
-symfony console doctrine:fixtures:load
+    symfony console doctrine:fixtures:load
 
 
 Now you shoud be able to access accounts app at:
@@ -25,13 +25,13 @@ http://localhost:8000/
 
 for running smallTests create test db:
 
-symfony console doctrine:database:create --env="test"
+    symfony console doctrine:database:create --env="test"
 
-symfony console doctrine:migrations:migrate --env="test"
+    symfony console doctrine:migrations:migrate --env="test"
 
 run all tests from container:
 
-symfony php bin/phpunit
+    symfony php bin/phpunit
 
 
 Accounts app API provides the following endpoins and functionality:
